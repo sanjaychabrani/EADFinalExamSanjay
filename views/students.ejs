@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+</head>
+<body>
+    <%-include('navbar')%>
+    <table>
+        <tbody>
+
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Ingredients</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+            <%for(let i=0; i < students.length; i++){%>
+                <tr>
+                    <td><%=students[i].name%></td>
+                    <td><%=students[i].phone%></td>
+                    <td><%=students[i].address%></td>
+                    <td><img src="/uploads/<%=students[i].image%>" width="100px" height="100px"/></td>
+                    <td>
+                        <a href="/deleteStudent/<%=students[i]._id%>">Delete</a>
+                        OR 
+                        <a href="/updateStudent/<%=students[i]._id%>">Update</a>
+                    </td>
+                </tr>
+                <%}%>
+        </tbody>
+    </table>
+</body>
+</html>
